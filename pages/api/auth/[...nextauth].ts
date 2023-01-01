@@ -34,5 +34,8 @@ export default NextAuth({
     pages: {
         signIn: "/login",
         error: "/error",
+    },
+    jwt: {
+        secret: process.env.JWT_SECRET,
     }
 })
