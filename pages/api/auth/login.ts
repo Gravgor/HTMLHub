@@ -14,7 +14,7 @@ async function login(req: NextApiRequest,res: NextApiResponse){
         }
     })
     if(!user){
-        res.status(404).json({error: "User not found"})
+        res.status(404).json({type: "Server error" ,error: "User not found"})
     }
     if(user){
         const passwordMatch = await bcrypt.compare(req.body.password, user.password)
