@@ -9,11 +9,9 @@ type FormValues = {
     password: string;
 }
 
-type Errors = {
-   Error:{
-         type: string;
+type Error = {
+        type: string;
         message: string;
-   }
 }
 
 const resolver: Resolver<FormValues> = async (values) => {
@@ -28,7 +26,7 @@ export default function Page(){
     const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm<FormValues>({ resolver });
 
-    const [error, setError] = useState<Errors>();
+    const [error, setError] = useState<Error>();
 
     const onSubmit: SubmitHandler<FormValues> = data => {
         async function signInUser(){
@@ -40,11 +38,9 @@ export default function Page(){
                 });
                 if(result){
                     if (result.error) {
-                        const newErrors: Errors = {
-                            Error: {
+                        const newErrors: Error = {
                                 type: "Server Error",
                                 message: result.error
-                            }
                         }
                         setError(newErrors);
                         setTimeout(() => {
@@ -56,11 +52,9 @@ export default function Page(){
                 }
             }
             catch(error){
-                const newErrors: Errors = {
-                    Error: {
+                const newErrors: Error = {
                         type: "Server Error",
                         message: 'Something went wrong'
-                }
             }
             setError(newErrors);
             setTimeout(() => {
@@ -88,7 +82,7 @@ return (
         </label>
        <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" {...register("password")}/>
          {errors.password && <p className="text-red-500 text-xs italic">{errors.password.message}</p>}
-         {error && <p className="text-red-500 text-xs italic">{error.Error.message}</p>}
+         {error && <p className="text-red-500 text-xs italic">{error.message}</p>}
       </div>
       <div className="flex items-center">
            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">
