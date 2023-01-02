@@ -11,7 +11,6 @@ export default function DashboardLayout({
             <body>
                 <ProvidersWrapper>
                    {children}
-                   <Footer/>
                 </ProvidersWrapper>
             </body>
         </html>

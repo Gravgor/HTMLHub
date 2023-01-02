@@ -48,7 +48,6 @@ export default function Page(){
                             setError(undefined);
                         }, 3000);
                     }else{
-                        localStorage.setItem("email", data.email);
                         router.push("/dashboard");
                     }
                 }
