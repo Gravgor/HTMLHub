@@ -1,4 +1,4 @@
-# HTML Rendering Platform
+# HTMLHub
 
 Welcome to our HTML rendering platform! With our app, you can upload your HTML files and view them directly in the browser. You can also edit the HTML code in real-time and see the changes reflected in the rendered output. Plus, you can create your own account to save and manage your HTML files. Built with Next.js, TypeScript, React, Prisma, and PostgreSQL.
 
